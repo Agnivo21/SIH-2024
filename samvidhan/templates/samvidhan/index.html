@@ -1,0 +1,276 @@
+{% extends 'samvidhan/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- ================= HERO SECTION =============-->
+    
+    <div class='container-fluid hero'>
+    <div class="container hero-section">
+        <div class="row align-items-center">
+            <!-- Left Column with Image -->
+            <div class="col-md-6">
+                <img src="{% static 'samvidhan/images/hero.png' %}" class="img-fluid" alt="Nagrik Aur Samvidhan Image">
+            </div>
+    
+            <!-- Right Column with Text -->
+            <div class="col-md-6">
+                <h1 class='heading' style="text-align: center;">NAGRIK AUR SAMVIDHAN</h1>
+                <p style="text-align: justify; margin-top: 20px; font-size: 20px; margin-Right: 25px;">
+                    Welcome to the "Nagrik Aur Samvidhan" platform. Our mission is to spread constitutional literacy among citizens by simplifying the language of the Constitution of India and presenting it in an engaging, accessible format. Dive into various educational games and activities that will help you understand your rights and duties as an Indian citizen.
+                </p>
+                <button class='hero-btn' onclick="scrollToSection()">
+                    Explore More
+                </button>
+            </div>
+        </div>
+    
+</div>
+</div>
+
+
+   
+
+    <script>
+        function scrollToSection() {
+            // Scroll down to a specific section with an ID of "target-section"
+            document.getElementById('target-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- ========= sub Section ============= -->
+    <section id="sub-section">
+        <div class="container">
+            <div class="row">
+                <!-- Left Column: Text and Image -->
+                <div class="col-md-6">
+                    <h1 style="font-family: Petrona, serif;">
+                        <b>Read</b> <br> the Constitution of India
+                    </h1>
+                    <img src="{% static 'samvidhan/images/doc.png' %}"alt="Document">
+                </div>
+                
+                <!-- Right Column: Carousel -->
+                <div class="col-md-6">
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <!-- First Slide -->
+                            <div class="carousel-item active">
+                                <p class="article-box">ARTICLES</p>
+                                <a href="{% url 'directive_principles' %}" class="text-link">Part IV - Directive Principles of State Policy</a>
+                                <p class="subheading">Article 41: Right to Work & Aid</p>
+                                <div class="navigation">
+                                    <a href="#" class="nav-arrow">&#9664;</a>
+                                    <a href="{% url 'directive_principles' %}" class="read-more">READ MORE -></a>
+                                    <a href='#' class="nav-arrow">&#9654;</a>
+                                </div>
+                            </div>
+                            <!-- Second Slide -->
+                            <div class="carousel-item">
+                                <p class="article-box">PREAMBLE</p>
+                                <a href="{% url 'preamble' %}" class="text-link">Preamble to the Constitution</a>
+                                <p class="subheading">Introduction to the Preamble</p>
+                                <div class="navigation">
+                                    <a href="#" class="nav-arrow">&#9664;</a>
+                                    <a href="{% url 'preamble' %}" class="read-more">READ MORE -></a>
+                                    <a href='#' class="nav-arrow">&#9654;</a>
+                                </div>
+                            </div>
+                           <!-- 3rd slide-->
+                           <div class="carousel-item">
+                           <p class="article-box">ARTICLES</p>
+                           <a href="{% url 'fundamental_rights'%}" class="text-link">Part III - Fundamental Rights</a>
+                           <p class="subheading">Article 14: Equality Before Law</p>
+                           <div class="navigation">
+                               <a href="#" class="nav-arrow">&#9664;</a>
+                               <a href="{% url 'fundamental_rights'%}" class="read-more">READ MORE -></a>
+                               <a href='#' class="nav-arrow">&#9654;</a>
+                           </div>
+                        </div>
+                        <!-- 4th slide-->
+                        <div class="carousel-item">
+                            <p class="article-box">DUTIES</p>
+                            <a href="{% url 'fundamental_duties'%}" class="text-link">Part IV A - Fundamental Duties</a>
+                            <p class="subheading">Duty. Honor. Nation.</p>
+                            <div class="navigation">
+                                <a href="#" class="nav-arrow">&#9664;</a>
+                                <a href="{% url 'fundamental_duties'%}" class="read-more">READ MORE -></a>
+                                <a href='#' class="nav-arrow">&#9654;</a>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--========= navigating through the carousel ============== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.carousel-item');
+            let currentItem = 0;
+        
+            function showItem(index) {
+                items.forEach((item, i) => {
+                    item.classList.toggle('active', i === index);
+                });
+            }
+        
+            document.querySelectorAll('.nav-arrow').forEach(arrow => {
+                arrow.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (this.classList.contains('prev')) {
+                        currentItem = (currentItem > 0) ? currentItem - 1 : items.length - 1;
+                    } else {
+                        currentItem = (currentItem < items.length - 1) ? currentItem + 1 : 0;
+                    }
+                    showItem(currentItem);
+                });
+            });
+        
+            showItem(currentItem);
+        });       
+</script>
+
+
+<!--========== Content Section ================-->
+<section id="content">
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-4'>
+                <h2 class='text-content' style='font-family: Times New Roman, Times, serif;'>Constituent Assembly Debates</h2>
+                <a href="link-to-constituent-assembly" class='view-all-box' style='text-decoration: none; color:inherit;'>VIEW ALL →</a>
+                <div class="card" style="width: 18rem; margin-top: 20px; margin-bottom: 30px;">
+                    <img src="{% static 'samvidhan/images/pic1.png'%}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        The Constituent Assembly of India was formed in 1946 to draft the Constitution. It was a mix of elected and 
+                        nominated members. The Assembly first met on December 9, 1946,chaired by Dr. Rajendra Prasad, with Dr. B.R. Ambedkar 
+                        heading the Drafting Committee. After 11 sessions over nearly three years, the Constitution was adopted on 
+                        November 26, 1949, and came into effect on January 26, 1950.
+                      </p>
+                    </div>
+                  </div>
+            </div>
+            <div class='col-md-4'>
+                <h2 class='text-content' style='font-family: Times New Roman, Times, serif;'>Historical Constitutions</h2>
+                <a href="link-to-constituent-assembly" class='view-all-box' style='text-decoration: none; color:inherit;'>VIEW ALL →</a>
+                <div class="card" style="width: 18rem; margin-top: 20px; margin-bottom: 30px;">
+                    <img src="{% static 'samvidhan/images/pic2.png'%}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">The Constitution of India is the supreme law, outlining political principles, procedures,
+                         and government powers. Adopted on November 26, 1949, and effective from January 26, 1950, it replaced the 
+                         Government of India Act 1935, transitioning India from a British dominion to a sovereign republic. It is the 
+                         longest written constitution, drawing from various sources, including the Government of India Acts and the Indian 
+                         Independence Act 1947.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class='col-md-4'>
+                <h2 class='text-content' style='font-family: Times New Roman, Times, serif;'>Committee Reports</h2>
+                <a href="link-to-constituent-assembly" class='view-all-box' style='text-decoration: none; color:inherit;'>VIEW ALL →</a>
+                <div class="card" style="width: 18rem; margin-top: 20px; margin-bottom: 30px;">
+                    <img src="{% static 'samvidhan/images/pic3.png'%}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        The drafting of the Indian Constitution involved several key committee reports, including: Draft Constitution 
+                        by the Constitutional Adviser (Oct 1, 1947) Ad Hoc Committee on Citizenship Clause (May 1, 1947) 
+                        Union Constitution Committee (July 4, 1947) Advisory Committee on Political Safeguards for Minorities (May 11, 1949)
+                        Sub-Committee on Fundamental Rights (April 16, 1947). These reports provided crucial recommendations
+                         and frameworks for the Constitution.
+                      </p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--======== target section ========-->
+
+<section id="target-section">
+        <div class='container'>
+            <div class='row'>
+                <div class='col-md-4'>
+                    <h1 style="font-family: Petrona, serif;"><b>Explore</b> how the<br> Indian <br>Constitution was made</h1>
+                </div>
+                <div class='col-md-3'>
+                    <img src='{% static "samvidhan/images/logo2.png" %}' width='200vw' height='300vh'>
+                </div>
+                <div class='col-md-5'>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3>STAGES</h3>
+                        <a href="{%url 'learning'%}" class='view-all-box-2'>VIEW ALL →</a>
+                    </div>
+                    
+                    <p class='text-box'>
+                    Discover the journey of India’s Constitution:<br>
+                    <b>Constituent Assembly:</b> Formed in 1946 with 389 members, later 299 after partition.<br>
+                    <b>Drafting Committee:</b> Led by Dr. B.R. Ambedkar, included top leaders and experts.<br>
+                    <b>Debates:</b> 11 sessions over 165 days to shape the final document.<br>
+                    <b>Adoption:</b> Adopted on Nov 26, 1949, effective from Jan 26, 1950 (Republic Day).<br>
+                    <b>Influences:</b>Inspired by British, American, Irish, and French constitutions.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+
+    <!--============Games Section ===============-->
+ 
+    <section id="learn-through-games">
+        <div class="container-fluid" style='background: #FF8C9E;'>
+            <h2 class="section-title text-center mb-4">Learn Through Games</h2>
+            <div class='container'>
+            <div class="row">
+                <!-- Game 1 Card -->
+                <div class="col-md-4">
+                    <div class="card game-card">
+                        <img src="{% static 'samvidhan/images/game1.png' %}" class="card-img-top" alt="Game 1 Image">
+                        <div class="card-body" style="background: #5BBCFF;">
+                            <h5 class="card-title" >Spin the Wheel</h5>
+                            <p class="card-text" style='color: black;'> Learn the Indian Constitution in a Fun and Engaging Way! Test your knowledge,
+                                 earn rewards, and become a Constitution expert.</p>
+                            <a href="{% url 'games'%}" class="btn btn-primary btn-block">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Game 2 Card -->
+                <div class="col-md-4">
+                    <div class="card game-card">
+                        <img src="{% static 'samvidhan/images/game2.png' %}" class="card-img-top" alt="Game 2 Image">
+                        <div class="card-body" style="background: #5BBCFF;">
+                            <h5 class="card-title">Memory Cards</h5>
+                            <p class="card-text">Test your memory and learn the Indian Constitution! Match pairs to master key concepts.</p>
+                            <a href="{% url 'games'%}" class="btn btn-primary btn-block">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Game 3 Card -->
+                <div class="col-md-4">
+                    <div class="card game-card">
+                        <img src="{% static 'samvidhan/images/game3.png' %}" class="card-img-top" alt="Game 3 Image">
+                        <div class="card-body" style="background: #5BBCFF;">
+                            <h5 class="card-title">Crossword Puzzle</h5>
+                            <p class="card-text">Explore the Indian Constitution! Solve clues and fill in the grid to learn key concepts.</p>
+                            <a href="{% url 'games'%}" class="btn btn-primary btn-block">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+ {% endblock %}   

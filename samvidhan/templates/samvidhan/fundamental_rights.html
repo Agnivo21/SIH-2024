@@ -1,0 +1,15 @@
+{% extends 'samvidhan/base.html' %}
+
+{% block content %}
+<main>
+    <section id="fr-content">
+        <h2 style='font-family: Times New Roman, Times, serif;'><b>Fundamental Rights</b></h2>
+        {% for right in rights %}
+        <div class="right">
+            <h3>{{ right.title }}</h3>
+            <p>{{ right.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'samvidhan/base.html' %}
+
+{% block content %}
+<main>
+    <section id="fd-content">
+        <h2 style='font-family: Times New Roman, Times, serif;'><b>Fundamental Duties</b></h2>
+        {% for duty in duties %}
+        <div class="duty">
+            <h3>{{ duty.title }}</h3>
+            <p>{{ duty.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

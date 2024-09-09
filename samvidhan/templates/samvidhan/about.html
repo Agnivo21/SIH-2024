@@ -1,0 +1,49 @@
+{% extends 'samvidhan/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid my-5">
+    <!-- Who We Are Section -->
+    <section id="who-we-are" class="text-center">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-description">
+            <div class='container who-we-are'>
+            At <strong>Nagrik Aur Samvidhan</strong>, we are a dynamic team of innovators, educators, and enthusiasts dedicated to revolutionizing the way constitutional knowledge is imparted. 
+            Our diverse team comprises experts in technology, education, and gamification, all driven by a common goal: to make the Constitution of India accessible and engaging for every citizen. 
+            We believe that understanding one's rights and responsibilities is crucial for a thriving democracy, and we are committed to achieving this through our interactive and gamified solutions.
+            </div>
+        </p>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section id="our-vision" class="text-center p-5 ">
+        <h2 class="section-title">Our Vision</h2>
+        <p class="section-description">
+            Our journey began with a vision to bridge the gap between complex legal texts and everyday understanding. We have harnessed cutting-edge technology to create a platform that combines fun with learning, making it easier for people of all ages to connect with their constitution. 
+            Each member of our team brings unique skills and perspectives, working together to craft experiences that are not only educational but also enjoyable. 
+            Join us in our mission to foster a well-informed citizenry and contribute to a more engaged and enlightened society.
+        </p>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section id="our-mission" class="text-center bg-primary text-white p-5 mb-5">
+        <h2 class="section-title">Our Mission</h2>
+        <p class="section-description">At <strong>Nagrik Aur Samvidhan</strong>, our mission is to transform the way constitutional knowledge is perceived and learned. We aim to create a platform where learning about the Constitution of India is not just informative but also engaging and enjoyable. Our goal is to break down complex legal concepts into easy-to-understand, interactive experiences that captivate and educate.</p>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="our-team" class="d-flex justify-content-between align-items-center">
+        <div class="team-images">
+            <img src="{% static 'samvidhan/images/doc.png' %}" alt="Team Member 1" class="img-fluid mb-3" />
+            <img src="{% static 'samvidhan/images/doc.png' %}" alt="Team Member 2" class="img-fluid mb-3" />
+            <img src="{% static 'samvidhan/images/doc.png' %}" alt="Team Member 3" class="img-fluid mb-3" />
+            <img src="{% static 'samvidhan/images/doc.png' %}" alt="Team Member 3" class="img-fluid mb-3" />
+            <img src="{% static 'samvidhan/images/doc.png' %}" alt="Team Member 3" class="img-fluid mb-3" />
+            <img src="{% static 'samvidhan/images/doc.png' %}" alt="Team Member 3" class="img-fluid mb-3" />
+        </div>
+        <div class="team-description">
+            <h2 class="section-title">Our Team</h2>
+            <p>Meet our dedicated team members who work tirelessly to bring this vision to life. Each member brings a unique set of skills and passion to the project, ensuring its success.</p>
+        </div>
+    </section>
+</div>
+{% endblock %}

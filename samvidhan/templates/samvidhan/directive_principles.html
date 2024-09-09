@@ -1,0 +1,17 @@
+{% extends 'samvidhan/base.html' %}
+
+{% block content %}
+<main>
+    <div class='container'>
+    <section id="dp-content">
+        <h2><b>Directive Principles of State Policy</b></h2>
+        {% for principle in principles %}
+        <div class="principle">
+            <h3>{{ principle.title }}</h3>
+            <p>{{ principle.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+</main>
+{% endblock %}
